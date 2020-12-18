@@ -7,9 +7,10 @@ let launchOptions = {
 }
 
 /**
- * Main function that runs puppeteer through mosaic interface then scrapes grade text from page and takes a screenshot
+ * Main function that runs puppeteer through mosaic interface then scrapes grade text from page and returns data to Alfred
  */
 async function getGrades() {
+    // terminal flag to check if the 'terminal' parameter was passed, indicating it was run through the terminal
     let terminal =  process.argv[2] === 'terminal'
 
     const browser = await puppeteer.launch(launchOptions);
@@ -110,11 +111,14 @@ async function getGrades() {
             icon: './icon.png'
         }
     )); 
-    alfy.output(output)
-
-
+    
+    if (!terminal) {
+        alfy.output(output)
+    }
+        
+    // pretty print grade data
     if (terminal) {
-        console.log('\n\n\n-------Grade Data-------');
+        console.log('-------Grade Data-------');
         for (let i = 0; i < gradeData.length; i++) {
             console.log(
                 gradeData[i][0], 
