@@ -1,0 +1,16 @@
+{
+  "name": "grade-scrape-aflred",
+  "version": "1.0.0",
+  "description": "Alfred workflow to scrape grades.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Graeme Woods",
+  "license": "ISC",
+  "dependencies": {
+    "alfy": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "puppeteer": "^5.5.0"
+  }
+}
