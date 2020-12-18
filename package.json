@@ -1,5 +1,5 @@
 {
-  "name": "grade-scrape-aflred",
+  "name": "grade-scraper",
   "version": "1.0.0",
   "description": "Alfred workflow to scrape grades.",
   "main": "index.js",
