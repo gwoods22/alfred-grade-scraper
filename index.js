@@ -3,7 +3,11 @@ const puppeteer = require('puppeteer');
 const alfy = require('alfy');
 
 let launchOptions = {
-    headless: true
+    headless: true,
+    defaultViewport: {
+        width: 800,
+        height: 600
+}
 }
 
 /**
@@ -86,6 +90,16 @@ async function getGrades() {
     await page.click("#okbutton input");
     
     await page.waitForSelector("#ptifrmtarget")
+
+        await page.screenshot({
+            path: './screenshot.png',
+            clip: {
+                x: 34,
+                y: 259,
+                width: 631,
+                height: 141
+            }
+        })
 
     // get new content iframe
     const newTarget = await page.frames().find(f => f.name() === 'TargetContent');
