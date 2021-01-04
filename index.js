@@ -92,7 +92,9 @@ async function getGrades() {
         await page.waitForSelector("#okbutton input", {visible: true});
         await page.click("#okbutton input");
         
+        // get new content iframe
         await page.waitForSelector("#ptifrmtarget")
+        const newTarget = await page.frames().find(f => f.name() === 'TargetContent');
 
         await page.screenshot({
             path: './screenshot.png',
@@ -103,9 +105,6 @@ async function getGrades() {
                 height: 141
             }
         })
-
-        // get new content iframe
-        const newTarget = await page.frames().find(f => f.name() === 'TargetContent');
 
         // get raw grade data
         const gradeData = await newTarget.evaluate(() => {
