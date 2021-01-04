@@ -115,11 +115,6 @@ async function getGrades() {
 
     await browser.close()
 
-    if (terminal) {
-        process.stdout.write("\r\x1b[K")
-        process.stdout.write("Scraping... 100%\n");
-    }
-
     let output = gradeData.map(x => (
         {
             title: x.length !== 6 ? 'Ungraded' : x[4],
@@ -129,7 +124,10 @@ async function getGrades() {
         }
     )); 
     
-    if (!terminal) {
+        if (terminal) {
+            process.stdout.write("\r\x1b[K")
+            process.stdout.write("Scraping... 100%\n");
+        } else {
         alfy.output(output)
     }
         
