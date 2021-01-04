@@ -51,9 +51,11 @@ async function getGrades() {
         process.stdout.write("\r\x1b[K")
         process.stdout.write("Scraping... 60%");
     }
+
+        // --- Sometimes not needed ---
     // modal ok button
-    // await page.waitForSelector("#okbutton input", {visible: true});
-    // await page.click("#okbutton input");
+        await page.waitForSelector("#okbutton input", {visible: true});
+        await page.click("#okbutton input");
     
     //wait for iFrame
     await page.waitForSelector("#ptifrmtarget")
@@ -62,9 +64,10 @@ async function getGrades() {
     // get content iframe
     const target = await page.frames().find(f => f.name() === 'TargetContent')
 
+        // --- Sometimes not needed ---
     // change term
-    // await target.waitForSelector("#ACE_width .PSPUSHBUTTON.Left")
-    // await target.click("#ACE_width .PSPUSHBUTTON.Left");   
+        await target.waitForSelector("#ACE_width .PSPUSHBUTTON.Left")
+        await target.click("#ACE_width .PSPUSHBUTTON.Left");   
 
     // fall 2020
     await target.waitForSelector("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(3) input");
