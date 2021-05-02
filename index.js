@@ -70,37 +70,38 @@ async function getGrades() {
 
         // --- Sometimes not needed ---
         // modal ok button
-        await page.waitForSelector("#okbutton input", {visible: true});
-        await page.click("#okbutton input");
+        // await page.waitForSelector("#okbutton input", {visible: true});
+        // await page.click("#okbutton input");
         
-        // // --------- CHANGE TERM START ---------
-        // //wait for iFrame
-        // await page.waitForSelector("#ptifrmtarget")
-        // await page.waitForTimeout(1000)
+        // --------- CHANGE TERM START ---------
+        //wait for iFrame
+        await page.waitForSelector("#ptifrmtarget")
+        await page.waitForTimeout(1000)
 
-        // // get content iframe
-        // const target = await page.frames().find(f => f.name() === 'TargetContent')
+        // get content iframe
+        const target = await page.frames().find(f => f.name() === 'TargetContent')
 
         // // change term
         // await target.waitForSelector("#ACE_width .PSPUSHBUTTON.Left")
         // await target.click("#ACE_width .PSPUSHBUTTON.Left");   
 
-        // // winter 2021
-        // await target.waitForSelector("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(2) input");
-        // await target.click("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(2) input");
+        // winter 2021
+        await target.waitForSelector("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(2) input");
+        await target.click("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(2) input");
         
-        // // submit button
-        // await target.waitForSelector("#ACE_width .PSPUSHBUTTON:not(.Left)");
-        // await target.click("#ACE_width .PSPUSHBUTTON:not(.Left)");
-        // // --------- CHANGE TERM END ---------
+        // submit button
+        await target.waitForSelector("#ACE_width .PSPUSHBUTTON:not(.Left)");
+        await target.click("#ACE_width .PSPUSHBUTTON:not(.Left)");
+        // --------- CHANGE TERM END ---------
 
         if (terminal) {
             process.stdout.write("\r\x1b[K")
             process.stdout.write("Scraping... 80%");
         }
-        //modal ok button
-        // await page.waitForSelector("#okbutton input", {visible: true});
-        // await page.click("#okbutton input");d
+        
+        // modal ok button
+        await page.waitForSelector("#okbutton input", {visible: true});
+        await page.click("#okbutton input");
         
         // get new content iframe
         await page.waitForSelector("#ptifrmtarget")
