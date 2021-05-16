@@ -130,7 +130,7 @@ async function getGrades() {
 
         let output = gradeData.map(x => (
             {
-                title: x.length !== 6 ? 'Ungraded' : x[4],
+                title: x.length >= 5 ? x[4] : 'Ungraded',
                 subtitle: x[0] + " - " + x[1],
                 arg: 'https://mosaic.mcmaster.ca/',
                 icon: './icon.png'
@@ -151,7 +151,7 @@ async function getGrades() {
                 console.log(
                     gradeData[i][0], 
                     "\t",
-                    gradeData[i].length !== 6 ? 'Ungraded' : gradeData[i][4]
+                    gradeData[i].length >= 5 ? gradeData[i][4] : 'Ungraded'
                 );  
             }
         }     
