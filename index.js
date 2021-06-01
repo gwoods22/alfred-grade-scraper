@@ -99,12 +99,13 @@ async function getGrades() {
             process.stdout.write("Scraping... 80%");
         }
         
-        // modal ok button
-        await page.waitForSelector("#okbutton input", {visible: true});
-        await page.click("#okbutton input");
+        // // modal ok button
+        // await page.waitForSelector("#okbutton input", {visible: true});
+        // await page.click("#okbutton input");
         
         // get new content iframe
         await page.waitForSelector("#ptifrmtarget")
+        await page.waitForTimeout(1000)
         const newTarget = await page.frames().find(f => f.name() === 'TargetContent');
 
         await page.screenshot({
@@ -119,7 +120,7 @@ async function getGrades() {
 
         // get raw grade data
         const gradeData = await newTarget.evaluate(() => {
-            let rows = Array.from(document.querySelectorAll(".PSLEVEL1GRID > tbody > tr")).slice(1)
+            let rows = Array.from(document.querySelectorAll("#ACE_width > tbody > tr:nth-child(8) .PSLEVEL1GRID > tbody > tr")).slice(1)
             return rows.map(el => {
                 let textArr = el.innerText.split('\n');
                 return textArr.filter( (el) => /\S/.test(el) );
