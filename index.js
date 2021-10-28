@@ -86,8 +86,8 @@ async function getGrades() {
         // await target.click("#ACE_width .PSPUSHBUTTON.Left");   
 
         // winter 2021
-        await target.waitForSelector("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(2) input");
-        await target.click("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(2) input");
+        await target.waitForSelector("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(4) input");
+        await target.click("#ACE_width > tbody > tr:nth-child(4) table table > tbody > tr:nth-child(4) input");
         
         // submit button
         await target.waitForSelector("#ACE_width .PSPUSHBUTTON:not(.Left)");
