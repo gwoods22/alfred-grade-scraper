@@ -9,8 +9,6 @@
   "author": "Graeme Woods",
   "license": "ISC",
   "dependencies": {
-    "alfy": "^0.10.0",
-    "dotenv": "^8.2.0",
-    "puppeteer": "^5.5.0"
+    "alfy": "^0.10.0"
   }
 }
