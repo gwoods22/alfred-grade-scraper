@@ -1,6 +1,6 @@
 const alfy = require('alfy');
 
-import { scrape } from '/Users/graeme/Documents/Projects/puppeteer-tests/grade-scraper.js'
+import { scrape } from '/Users/graeme/Developer/puppeteer-tests/grade-scraper.js'
 
 async function getGrades() {
     try {
