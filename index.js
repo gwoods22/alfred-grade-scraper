@@ -8,10 +8,10 @@ async function getGrades() {
 
         let output = gradeData.map(x => (
             {
-                title: x.length >= 5 ? x[4] : 'Ungraded',
-                subtitle: x[0] + " - " + x[1],
-                arg: 'https://mosaic.mcmaster.ca/',
-                icon: './icon.png'
+                title: x.grade,
+                subtitle: x.courseName,
+                icon: './icon.png',
+                arg: 'https://mosaic.mcmaster.ca/'
             }
         ));
 
