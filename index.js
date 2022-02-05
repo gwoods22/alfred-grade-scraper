@@ -1,10 +1,10 @@
 const alfy = require('alfy');
 
-import { scrape } from '/Users/graeme/Developer/puppeteer-tests/grade-scraper.js'
+const puppeteer = require('/Users/graeme/Developer/puppeteer-tests/grade-scraper.js')
 
 async function getGrades() {
     try {
-        let gradeData = await scrape();
+        let gradeData = await puppeteer.scrape();
 
         let output = gradeData.map(x => (
             {
